@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Cómo trabajo la técnica a distancia (sin humo)",
+    "date": "2026-03-01",
+    "excerpt": "Diagnóstico por video, plan individual, correcciones claras y seguimiento real.",
+    "tags": ["técnica", "entrenamiento a distancia"],
+    "category": "técnica",
+    "type": "original",
+    "url": "blog/posts/como-trabajo-a-distancia.html"
+  },
+  {
+    "title": "Artículo recomendado: movilidad de hombro (comentada)",
+    "date": "2026-02-10",
+    "excerpt": "Te dejo el enlace y mi comentario: cuándo sirve, cuándo no, y cómo aplicarlo sin lesionarte.",
+    "tags": ["movilidad", "hombro"],
+    "category": "movilidad",
+    "type": "curation",
+    "sourceUrl": "https://example.com",
+    "url": "blog/posts/movilidad-hombro-comentada.html"
+  },
+  {
+  "title": "Se viene torneo: qué mirar para rendir mejor bajo presión",
+  "date": "2026-03-03",
+  "excerpt": "Checklist rápido: técnica bajo fatiga, intentos, tiempos y calentamiento. Sin improvisar.",
+  "tags": ["competencia", "crossfit"],
+  "category": "competencia",
+  "type": "original",
+  "url": "blog/posts/se-viene-torneo.html"
+}
+]

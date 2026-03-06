@@ -1,0 +1,81 @@
+/* ======================================================
+   06 - CARDS / MEDIA / BADGES / TAGS
+   Componentes reutilizables
+====================================================== */
+
+/* =========================
+   Card base
+========================= */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.card h3{
+  margin:0 0 8px;
+  font-size:18px;
+}
+
+.card p{
+  margin:0;
+  color:var(--muted);
+}
+
+/* =========================
+   Media images (secciones)
+========================= */
+.section-media img{
+  width:100%;
+  height:clamp(260px, 40vh, 460px);
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+
+/* =========================
+   Badge (chip simple)
+========================= */
+.badge{
+  font-size:12px;
+  padding:6px 10px;
+
+  border:1px solid var(--border);
+  border-radius:999px;
+
+  color:var(--muted);
+  background: color-mix(in oklab, var(--surface) 92%, var(--bg));
+}
+
+/* =========================
+   Tag (chip overlay premium)
+   - En dark: overlay oscuro
+   - En light: overlay claro
+========================= */
+.tag{
+  font-size:12px;
+  padding:8px 12px;
+  border-radius:999px;
+
+  border:1px solid color-mix(in oklab, var(--border) 65%, transparent);
+  background: color-mix(in oklab, var(--surface) 78%, transparent);
+
+  color: var(--text);
+  backdrop-filter: blur(10px);
+}
+
+/* Ajuste fino: en dark se ve mejor un poco más “glass” */
+:root:not([data-theme="light"]) .tag{
+  background: rgba(0,0,0,0.35);
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(233,238,245,0.92);
+}
+
+/* En light: más contraste y sin efecto “lavado” */
+:root[data-theme="light"] .tag{
+  background: rgba(255,255,255,0.60);
+  border-color: rgba(15,23,42,0.14);
+  color: rgba(11,18,32,0.88);
+}

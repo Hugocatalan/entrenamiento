@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog | Hugo Catalán</title>
+  <meta name="description" content="Notas, recursos y recomendaciones comentadas sobre halterofilia y CrossFit." />
+  <meta name="theme-color" content="#0b0d10" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body data-wa-phone="5493425661863">
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Hugo Catalán</strong>
+        <span>Blog</span>
+      </a>
+      <nav class="nav" aria-label="Navegación">
+        <a href="../index.html">Inicio</a>
+        <a class="btn btn-primary" data-wa="generic" href="#">WhatsApp</a>
+        <button id="themeToggle" class="btn theme-toggle" aria-label="Cambiar tema">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="h1 reveal" style="font-size: 34px; margin: 0 0 10px;">Notas y recursos</h1>
+      <p class="lead reveal">Posts propios y curación comentada. Todo queda archivado.</p>
+
+      <!-- Los cards los inyecta app.js (ahora salen con class="card reveal") -->
+      <div id="blogList" data-per-page="6" class="reveal"></div>
+      <div id="blogPager" class="reveal"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Hugo Catalán</div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

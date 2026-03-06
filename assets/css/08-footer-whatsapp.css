@@ -1,0 +1,94 @@
+/* ======================================================
+   08 - FOOTER + WHATSAPP FLOAT
+====================================================== */
+
+/* =========================
+   Footer
+========================= */
+.footer{
+  padding:28px 0 46px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:13px;
+}
+
+
+/* =========================
+   WhatsApp Float Button
+   - Verde reconocible, no neón
+   - Hover con feedback real
+   - Pulso suave (opcional) sin romper sombras
+========================= */
+
+.whatsapp-float{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  padding: 14px 20px;
+  border-radius: 999px;
+
+  background-color: #1FA855;
+  color: #fff;
+
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration:none;
+
+  /* sombra base (la buena) */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background-color .2s ease;
+}
+
+/* Hover */
+.whatsapp-float:hover{
+  background-color: #1b944c; /* un tono más oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   Pulse (suave)
+   Importante: usamos "filter drop-shadow" para no pisar box-shadow base
+========================= */
+.whatsapp-float{
+  animation: whatsappPulse 2.6s infinite;
+}
+
+@keyframes whatsappPulse{
+  0%{
+    filter: drop-shadow(0 0 0 rgba(31,168,85,.55));
+  }
+  70%{
+    filter: drop-shadow(0 0 18px rgba(31,168,85,0));
+  }
+  100%{
+    filter: drop-shadow(0 0 0 rgba(31,168,85,0));
+  }
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 700px){
+  .whatsapp-float{
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Accesibilidad: si el usuario reduce movimiento, sin pulse */
+@media (prefers-reduced-motion: reduce){
+  .whatsapp-float{ animation: none; }
+}

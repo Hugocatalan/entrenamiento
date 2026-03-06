@@ -1,0 +1,275 @@
+/* ======================================================
+   41 - AUTORIDAD EN NÚMEROS (Athlete style)
+   Fondo "barbell discs" + cards KPI
+====================================================== */
+
+.authority{
+  position:relative;
+  padding:90px 0;
+  overflow:hidden;
+}
+
+/* Fondo con discos */
+.authority::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background-image:url("../img/barbell-discs-bg.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  opacity:0.55;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Overlay para legibilidad (dark por defecto) */
+.authority::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(11,13,16,0.85) 0%,
+    rgba(11,13,16,0.75) 35%,
+    rgba(11,13,16,0.40) 60%,
+    rgba(11,13,16,0.00) 85%
+  );
+
+  pointer-events:none;
+  z-index:1;
+}
+
+/* En LIGHT: overlay más claro (si no, ensucia demasiado) */
+:root[data-theme="light"] .authority::after{
+  background: radial-gradient(
+    circle at center,
+    rgba(246,247,251,0.88) 0%,
+    rgba(246,247,251,0.70) 35%,
+    rgba(246,247,251,0.35) 60%,
+    rgba(246,247,251,0.00) 85%
+  );
+}
+
+/* Contenido encima del fondo */
+.authority-inner{
+  position:relative;
+  z-index:2;
+}
+
+/* =========================
+   Head
+========================= */
+.authority-head{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.authority-title{
+  margin:0 0 10px;
+  font-size:clamp(28px, 3.4vw, 40px);
+  letter-spacing:-0.02em;
+  color:var(--text);
+}
+
+.authority-lead{
+  margin:0 auto;
+  max-width:72ch;
+  color:var(--muted);
+}
+
+/* =========================
+   Grid
+========================= */
+.authority-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(240px, 1fr));
+  gap:18px;
+
+  margin:26px auto 0;
+  max-width:min(1100px, 100%);
+
+  justify-content:center;
+  align-items:stretch;
+}
+
+/* =========================
+   Card
+========================= */
+.authority-card{
+  position:relative;
+  overflow:hidden;
+
+  padding:22px;
+  border-radius:24px;
+
+  border:1px solid var(--border);
+  background: color-mix(in oklab, var(--surface) 92%, var(--bg));
+
+  box-shadow:0 18px 55px rgba(0,0,0,0.35);
+
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+/* Glow interno (luz, no borde duro) */
+.authority-card::before{
+  content:"";
+  position:absolute;
+  inset:-40px -40px auto -40px;
+  height:180px;
+
+  background: radial-gradient(
+    closest-side,
+    rgba(255,212,0,0.14),
+    transparent 70%
+  );
+
+  pointer-events:none;
+}
+
+/* Hover */
+.authority-card:hover{
+  transform:translateY(-4px);
+  border-color: color-mix(in oklab, var(--brand) 35%, var(--border));
+  box-shadow:0 22px 70px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   KPI content
+========================= */
+.authority-kpi{
+  display:grid;
+  gap:6px;
+  position:relative;
+  z-index:1;
+}
+
+.authority-num,
+.authority-number{
+  font-size:clamp(38px, 4vw, 56px);
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-0.03em;
+  color:var(--brand);
+}
+
+.authority-label{
+  font-size:14px;
+  font-weight:800;
+  color:var(--text); /* antes estaba hardcodeado casi blanco */
+}
+
+.authority-sub{
+  margin-top:10px;
+  font-size:12.5px;
+  color:var(--muted);
+  position:relative;
+  z-index:1;
+}
+
+/* =========================
+   Footer / Note
+========================= */
+.authority-foot{
+  margin-top:18px;
+
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.authority-note{
+  flex:1 1 420px;
+
+  padding:14px 16px;
+  border-radius:18px;
+
+  border:1px solid var(--border);
+  background: color-mix(in oklab, var(--surface) 88%, var(--bg));
+
+  color:var(--muted);
+  font-size:13px;
+}
+
+.authority-note strong{
+  color:var(--text);
+}
+
+/* =========================
+   Medallas (oro / plata / bronce)
+========================= */
+.medals{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-top:10px;
+}
+
+.medal{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:13px;
+  font-weight:700;
+
+  transition: transform .15s ease, filter .15s ease;
+}
+
+/* Circulito estilo medalla (brillo) */
+.medal::before{
+  content:"";
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  display:inline-block;
+
+  /* brillo tipo metálico */
+  background: radial-gradient(circle at 30% 30%, #fff, currentColor);
+  box-shadow:0 0 8px color-mix(in oklab, currentColor 45%, transparent);
+}
+
+.medal.gold{ color:#FFD700; }
+.medal.silver{ color:#C0C0C0; }
+.medal.bronze{ color:#CD7F32; }
+
+.medal:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.12);
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width:980px){
+  .authority-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:600px){
+  .authority{
+    padding:54px 0;
+  }
+
+  .authority-grid{
+    grid-template-columns:1fr;
+  }
+
+  .authority-head{
+    text-align:left;
+  }
+
+  .authority-lead{
+    margin:0;
+  }
+}

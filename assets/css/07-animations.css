@@ -1,0 +1,36 @@
+/* ======================================================
+   07 - ANIMATIONS (REVEAL)
+   Aparición suave de elementos al entrar en viewport
+====================================================== */
+
+/* Estado inicial */
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+
+  transition:
+    opacity .6s ease,
+    transform .6s ease;
+
+  will-change:opacity, transform;
+}
+
+/* Estado visible */
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* =========================
+   Accesibilidad
+   Respeta usuarios con reducción de movimiento
+========================= */
+@media (prefers-reduced-motion: reduce){
+
+  .reveal{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+
+}

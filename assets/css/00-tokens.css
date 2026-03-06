@@ -1,0 +1,58 @@
+/* ======================================================
+   00 - TOKENS / THEME
+   Sistema de variables globales del diseño
+   (colores, spacing, radios, sombras)
+====================================================== */
+
+/* =========================
+   DARK THEME (DEFAULT)
+========================= */
+:root{
+
+  /* Backgrounds */
+  --bg:#0b0d10;
+  --surface:#12161c;
+
+  /* Typography */
+  --text:#e9eef5;
+  --muted:#a9b4c0;
+
+  /* Borders */
+  --border:rgba(255,255,255,0.10);
+
+  /* Brand colors */
+  --brand:#ffd400;
+  --accent:#ff4d4d;
+  --accent2:#ff8a00;
+
+  /* Layout */
+  --radius:18px;
+  --shadow:0 12px 30px rgba(0,0,0,0.35);
+
+  --max:1120px;
+  --gap:18px;
+  --padX:28px;
+}
+
+
+/* =========================
+   LIGHT THEME
+   Ajustado para legibilidad real
+========================= */
+:root[data-theme="light"]{
+
+  /* Backgrounds */
+  --bg:#f6f7fb;
+  --surface:#ffffff;
+
+  /* Typography */
+  --text:#0b1220;       /* texto principal */
+  --muted:#334155;      /* texto secundario */
+
+  /* Borders */
+  --border:rgba(15,23,42,0.12);
+
+  /* Shadows más suaves */
+  --shadow:0 12px 30px rgba(17,24,39,0.10);
+
+}

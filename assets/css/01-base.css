@@ -1,0 +1,64 @@
+/* ======================================================
+   01 - BASE / RESET
+   Reset mínimo + tipografía + accesibilidad
+====================================================== */
+
+/* Reset básico y consistente */
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+/* UX: scroll suave para anchors (si el usuario no lo desactiva) */
+html{
+  scroll-behavior:smooth;
+}
+
+/* Base del documento */
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+
+  /* Mejora visual de fuentes en la mayoría de pantallas */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+
+/* Links sin “default blue”, heredan color del layout */
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* Imágenes responsivas */
+img{
+  max-width:100%;
+  display:block;
+  height:auto;
+}
+
+/* Accesibilidad: foco visible consistente */
+:focus-visible{
+  outline:3px solid color-mix(in oklab, var(--brand) 55%, transparent);
+  outline-offset:3px;
+}
+
+/* Respeta usuarios con reducción de movimiento */
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
