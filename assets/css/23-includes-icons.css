@@ -1,0 +1,50 @@
+/* ======================================================
+   23 - ICONOS EN "QUÉ RECIBÍS"
+   Icono + título dentro de include-card
+====================================================== */
+
+/* Header del card (icono + texto) */
+.include-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+/* Caja del icono */
+.include-ico{
+  width:34px;
+  height:34px;
+
+  border-radius:12px;
+
+  display:grid;
+  place-items:center;
+
+  /* color de fondo suave del brand */
+  background: color-mix(in oklab, var(--brand) 12%, transparent);
+
+  /* borde sutil */
+  border:1px solid color-mix(in oklab, var(--brand) 35%, transparent);
+
+  /* color del svg */
+  color:var(--brand);
+
+  flex:0 0 auto;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+/* Icono */
+.include-ico svg{
+  width:18px;
+  height:18px;
+}
+
+/* Hover suave premium */
+.include-card:hover .include-ico{
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(255,212,0,0.18);
+}

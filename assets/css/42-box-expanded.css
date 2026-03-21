@@ -1,0 +1,102 @@
+/* ======================================================
+   42 - BOX EXPANDED (CAPACITACIONES + GALERÍA)
+====================================================== */
+
+/* HEAD */
+.box-head{
+  margin-bottom:22px;
+}
+
+/* BENEFITS GRID */
+.box-benefits-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:16px;
+  margin-bottom:28px;
+}
+
+.box-benefit{
+  padding:16px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background: color-mix(in oklab, var(--surface) 92%, var(--bg));
+  box-shadow:var(--shadow);
+}
+
+.box-benefit h3{
+  margin:0 0 6px;
+  font-size:16px;
+  color:var(--text);
+}
+
+.box-benefit p{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* =========================
+   GALERÍA DESORDENADA (MASONRY)
+========================= */
+
+.box-gallery-masonry{
+  column-count:3;
+  column-gap:14px;
+}
+
+.box-gallery-masonry img{
+  width:100%;
+  margin-bottom:14px;
+  border-radius:18px;
+  display:block;
+
+  break-inside:avoid;
+  object-fit:cover;
+
+  box-shadow:0 14px 35px rgba(0,0,0,0.35);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+/* efecto hover premium */
+.box-gallery-masonry img:hover{
+  transform:scale(1.03);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.55),
+    0 0 25px rgba(255,212,0,0.18);
+}
+
+/* CTA */
+.box-cta{
+  margin-top:24px;
+  display:flex;
+  justify-content:center;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:900px){
+
+  .box-benefits-grid{
+    grid-template-columns:1fr;
+  }
+
+  .box-gallery-masonry{
+    column-count:2;
+  }
+}
+
+@media (max-width:600px){
+
+  .box-gallery-masonry{
+    column-count:1;
+  }
+
+  .box-benefit{
+    padding:14px;
+  }
+}

@@ -1,0 +1,392 @@
+/* ======================================================
+   30 - TESTIMONIOS (CARRUSEL PREMIUM)
+   - auto scroll infinito por JS
+   - pausa en hover/focus
+   - cards expandibles sin romper el track
+====================================================== */
+
+.testimonials .lead{
+  max-width:78ch;
+}
+
+.testimonials{
+  overflow:hidden;
+}
+
+.carousel{
+  margin-top:10px;
+  position:relative;
+  overflow:visible;
+}
+
+/* =========================
+   VIEWPORT
+========================= */
+.carousel-viewport{
+  width:100%;
+  overflow-x:auto;
+  overflow-y:visible;
+  padding:2.8rem 0;
+  outline:none;
+
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+
+  /* ocultar scrollbar nativo */
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+
+.carousel-viewport::-webkit-scrollbar{
+  display:none;
+}
+
+/* =========================
+   TRACK
+========================= */
+.carousel-track{
+  display:flex;
+  gap:16px;
+  width:max-content;
+  padding:10px 0;
+  will-change:transform;
+  align-items:stretch;
+}
+
+/* =========================
+   CARD BASE
+========================= */
+.tcard{
+  width:clamp(340px, 38vw, 520px);
+  min-height:170px;
+  flex:0 0 auto;
+  position:relative;
+  z-index:1;
+
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:14px;
+  align-items:center;
+
+  padding:14px;
+  border-radius:22px;
+
+  background:color-mix(in oklab, var(--surface) 92%, var(--bg));
+  border:1px solid var(--border);
+  box-shadow:0 16px 45px rgba(0,0,0,0.28);
+
+  transform:translateZ(0);
+  outline:none;
+
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease,
+    filter 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease,
+    background-color 300ms ease;
+}
+
+.tcard{
+  --tx:0px;
+  --ty:0px;
+}
+
+/* =========================
+   IMAGE
+========================= */
+.timg{
+  height:110px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 10px 24px rgba(0,0,0,0.25);
+}
+
+.timg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1);
+  transition:transform 320ms ease;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.tcontent{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:100%;
+  transition:transform 180ms ease;
+}
+
+.ttext{
+  margin:0 0 10px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.ttext-short{
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  margin:0 0 10px;
+}
+
+.ttext-full{
+  display:none;
+  margin:0 0 12px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.5;
+
+  /* mantiene tamaño de la card */
+  max-height:160px;
+  overflow-y:auto;
+  padding-right:6px;
+
+  scrollbar-width:thin;
+}
+
+.ttext-full p{
+  margin:0 0 10px;
+}
+
+.tmeta{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.tmore{
+  margin-top:8px;
+  align-self:flex-start;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:color-mix(in oklab, var(--surface) 88%, var(--bg));
+  color:var(--text);
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .18s ease, border-color .18s ease;
+}
+
+.tmore:hover{
+  transform:translateY(-1px);
+  border-color:color-mix(in oklab, var(--brand) 35%, var(--border));
+}
+
+/* =========================
+   PARALLAX + HOVER
+========================= */
+.tcard:hover .timg img,
+.tcard:focus .timg img,
+.tcard:focus-within .timg img{
+  transform:scale(1.28) translate(var(--tx), var(--ty));
+}
+
+.tcard:hover .tcontent{
+  transform:translate(calc(var(--tx) * -0.25), calc(var(--ty) * -0.25));
+}
+
+/* hover grupal */
+.carousel-track:hover .tcard{
+  transform:scale(0.92);
+  opacity:0.55;
+  filter:blur(0.5px);
+}
+
+.carousel-track:hover .tcard:hover{
+  transform:translateY(-12px) scale(1.12);
+  opacity:1;
+  filter:blur(0);
+
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.65),
+    0 0 35px rgba(255,212,0,0.28),
+    0 0 90px rgba(255,212,0,0.16);
+
+  border-color:color-mix(in oklab, var(--brand) 40%, var(--border));
+  z-index:20;
+}
+
+/* hover individual */
+.tcard:hover,
+.tcard:focus,
+.tcard:focus-within{
+  transform:translateY(-10px) scale(1.08);
+  border-color:color-mix(in oklab, var(--brand) 40%, var(--border));
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,212,0,0.12);
+
+  z-index:10;
+}
+
+/* =========================
+   CARD EXPANDIDA
+========================= */
+.tcard.is-expanded{
+  z-index:30;
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.55),
+    0 0 35px rgba(255,212,0,0.20);
+
+  min-height:170px;
+}
+
+.tcard.is-expanded .ttext-short{
+  display:none;
+}
+
+.tcard.is-expanded .ttext-full{
+  display:block;
+}
+
+.carousel-track:hover .tcard.is-expanded{
+  transform:translateY(-10px) scale(1.03);
+  opacity:1;
+  filter:none;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+:root[data-theme="light"] .tcard{
+  box-shadow:0 14px 34px rgba(15,23,42,0.10);
+}
+
+:root[data-theme="light"] .carousel-track:hover .tcard:hover{
+  box-shadow:
+    0 26px 60px rgba(15,23,42,0.18),
+    0 0 28px rgba(255,212,0,0.22),
+    0 0 70px rgba(255,212,0,0.12);
+}
+
+/* =========================
+   CONTROLES + PROGRESO
+========================= */
+.carousel-ui{
+  width:min(100% - 32px, var(--max));
+  margin:12px auto 0;
+
+  display:grid;
+  grid-template-columns:44px 1fr 44px;
+  gap:12px;
+  align-items:center;
+}
+
+.car-btn{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:color-mix(in oklab, var(--surface) 92%, var(--bg));
+  color:var(--text);
+  font-size:22px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,0.20);
+
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.car-btn:hover{
+  transform:translateY(-1px);
+  border-color:color-mix(in oklab, var(--brand) 35%, var(--border));
+  box-shadow:0 14px 34px rgba(0,0,0,0.24);
+}
+
+.car-btn:active{
+  transform:translateY(0);
+}
+
+.car-progress{
+  height:10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:color-mix(in oklab, var(--surface) 88%, var(--bg));
+  overflow:hidden;
+  position:relative;
+}
+
+.car-progress-bar{
+  height:100%;
+  width:30%;
+  border-radius:999px;
+  background:color-mix(in oklab, var(--brand) 85%, transparent);
+  transform:translateX(0);
+  will-change:transform;
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+@media (prefers-reduced-motion: reduce){
+  .carousel-track:hover .tcard{
+    transform:none;
+    opacity:1;
+    filter:none;
+  }
+
+  .tcard,
+  .timg img,
+  .tcontent{
+    transition:none !important;
+  }
+
+  .carousel-viewport{
+    scroll-behavior:auto;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:700px){
+  .tcard{
+    width:min(92vw, 520px);
+    grid-template-columns:120px 1fr;
+  }
+
+  .timg{
+    height:96px;
+  }
+
+  .carousel-ui{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "prev next"
+      "bar  bar";
+  }
+
+  .car-btn[data-car="prev"]{
+    grid-area:prev;
+    width:100%;
+  }
+
+  .car-btn[data-car="next"]{
+    grid-area:next;
+    width:100%;
+  }
+
+  .car-progress{
+    grid-area:bar;
+  }
+
+  .tcard.is-expanded{
+    transform:translateY(-4px) scale(1.01);
+  }
+
+  .carousel-track:hover .tcard.is-expanded{
+    transform:translateY(-4px) scale(1.01);
+  }
+}

@@ -1,0 +1,27 @@
+/* ======================================================
+   02 - LAYOUT
+   Contenedor + grids reutilizables
+====================================================== */
+
+/* Contenedor principal: ancho máximo + padding lateral fluido */
+.container{
+  width:min(100% - 32px, var(--max));
+  margin:0 auto;
+}
+
+/* Grid 2 columnas clásico */
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--gap);
+}
+
+/* Responsive: cuando falta espacio, pasa a 1 columna */
+@media (max-width: 760px){
+  .container{
+    width:min(100% - 24px, var(--max));
+  }
+  .grid2{
+    grid-template-columns:1fr;
+  }
+}

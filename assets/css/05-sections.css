@@ -1,0 +1,107 @@
+/* ======================================================
+   05 - SECTIONS
+   Estilos genéricos de secciones + listas
+   + sección "Experiencia" (cards)
+====================================================== */
+
+/* =========================
+   Section base
+========================= */
+.section{
+  padding:34px 0;
+}
+
+.section h2{
+  margin:0 0 10px;
+  font-size:24px;
+}
+
+.section .lead{
+  color:var(--muted);
+  margin:0 0 18px;
+  max-width:70ch;
+}
+
+/* =========================
+   List items (bloques tipo “pasos”)
+========================= */
+.list{
+  display:grid;
+  gap:10px;
+}
+
+.li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+
+  padding:12px;
+
+  border:1px solid var(--border);
+  border-radius:14px;
+
+  background: color-mix(in oklab, var(--surface) 92%, var(--bg));
+}
+
+/* =========================
+   EXPERIENCE (cards)
+   Nota: esto idealmente iría en 08-experience.css
+========================= */
+.experience-grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+}
+
+.exp-card{
+  padding:24px;
+  border-radius:22px;
+
+  border:1px solid var(--border);
+  background: var(--surface);
+
+  box-shadow: var(--shadow);
+}
+
+.exp-card h3{
+  margin:0 0 14px;
+}
+
+.exp-card ul{
+  margin:0;
+  padding-left:18px;
+
+  display:grid;
+  gap:6px;
+
+  font-size:14px;
+  color:var(--muted);
+}
+
+.exp-highlight{
+  margin-top:12px;
+  font-weight:800;
+  color:var(--brand);
+}
+
+.exp-note{
+  margin-top:12px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:900px){
+  .experience-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:600px){
+  .experience-grid{
+    grid-template-columns:1fr;
+  }
+}
