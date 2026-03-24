@@ -1,0 +1,161 @@
+/* ======================================================
+   20 - DISTANCIA (PREMIUM)
+   Sección "¿Funciona a distancia?"
+====================================================== */
+
+/* =========================
+   Wrapper general
+========================= */
+.distance-premium{
+  position:relative;
+  overflow:hidden;
+}
+
+.distance-premium::before{
+  content:"";
+  position:absolute;
+  inset:-240px -240px auto -240px;
+  height:520px;
+
+  background:
+    radial-gradient(closest-side, rgba(255,212,0,0.14), rgba(255,212,0,0) 70%),
+    radial-gradient(closest-side, rgba(255,138,0,0.10), rgba(255,138,0,0) 70%);
+
+  filter:blur(14px);
+  pointer-events:none;
+}
+
+/* =========================
+   Layout
+========================= */
+.distance-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:28px;
+  align-items:start;
+  position:relative;
+}
+
+.distance-title{
+  font-size:28px;
+  margin:0 0 10px;
+}
+
+.distance-lead{
+  margin:0 0 18px;
+  max-width:70ch;
+  color:var(--muted);
+}
+
+/* Énfasis dentro del texto */
+.distance-lead strong{
+  color:var(--brand);
+  font-weight:700;
+
+  display:inline-block;
+  opacity:0;
+  transform:translateY(6px);
+  transition:
+    opacity .45s ease,
+    transform .45s ease;
+}
+
+.distance-lead strong.pop{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* =========================
+   Steps / CTA
+========================= */
+.distance-steps{
+  display:grid;
+  gap:12px;
+  margin-top:10px;
+}
+
+.distance-cta{
+  margin-top:16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.distance-note{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* =========================
+   Media block
+========================= */
+.distance-media{
+  position:relative;
+  border-radius:22px;
+  overflow:hidden;
+
+  border:1px solid var(--border);
+  box-shadow:0 18px 55px rgba(0,0,0,0.45);
+}
+
+.distance-media img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  transform:scale(1.02);
+}
+
+.distance-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,0.12),
+    rgba(0,0,0,0.55)
+  );
+}
+
+/* En modo claro, overlay más suave */
+:root[data-theme="light"] .distance-overlay{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,0.04),
+    rgba(11,18,32,0.20)
+  );
+}
+
+.distance-badges{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:2;
+
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:980px){
+  .distance-grid{
+    grid-template-columns:1fr;
+  }
+
+  .distance-media img{
+    height:420px;
+  }
+}
+
+@media (max-width:700px){
+  .distance-media img{
+    height:320px;
+  }
+
+  .distance-badges{
+    left:12px;
+    bottom:12px;
+  }
+}

@@ -1,0 +1,96 @@
+/* ======================================================
+   04 - BUTTONS
+   Botones reutilizables + estados (hover/focus/active)
+====================================================== */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  padding:10px 14px;
+  min-height:40px;
+
+  border-radius:999px;
+  border:1px solid var(--border);
+
+  background-color:var(--surface);
+  color:var(--text);
+
+  font-weight:700;
+  cursor:pointer;
+
+  /* Evita estilos raros en <button> */
+  appearance:none;
+  -webkit-appearance:none;
+
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+/* Hover */
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+/* Active (click) */
+.btn:active{
+  transform:translateY(0);
+}
+
+/* Accesibilidad */
+.btn:focus-visible{
+  outline:3px solid color-mix(in oklab, var(--brand) 55%, transparent);
+  outline-offset:2px;
+}
+
+/* Variantes */
+.btn-primary{
+  background-color:var(--brand);
+  border-color:color-mix(in oklab, var(--brand) 65%, black);
+  color:#111;
+}
+.nav-cta{
+  background-color:#1FA855;
+  color:#fff; /* ← CLAVE */
+  border:none;
+}
+.btn-ghost{
+  background-color:transparent;
+}
+
+/* Tamaños */
+.btn-small{
+  padding:10px 12px;
+  min-height:38px;
+  font-weight:800;
+}
+
+/* Toggle de tema */
+.theme-toggle{
+  width:38px;
+  height:38px;
+  padding:0;
+  border-radius:999px;
+  line-height:1;
+}
+ .nav-whatsapp{
+  background-color:#1FA855;
+  color:#f4f0f0;
+  
+  border-radius:999px;
+  padding:10px 16px;
+  font-weight:800;
+
+  transition: all .2s ease;
+}
+
+.nav-whatsapp:hover{
+  background-color:#1b944c;
+  transform:translateY(-1px);
+}

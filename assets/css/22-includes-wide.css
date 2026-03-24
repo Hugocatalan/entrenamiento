@@ -1,0 +1,77 @@
+/* ======================================================
+   22 - "QUÉ RECIBÍS" (FULL WIDTH)
+   Bloque ancho + cards con beneficios
+====================================================== */
+
+.distance-includes-wide{
+  margin-top:40px;
+  padding:26px;
+  border-radius:24px;
+
+  border:1px solid var(--border);
+  background: color-mix(in oklab, var(--surface) 92%, var(--bg));
+  box-shadow:0 16px 45px rgba(0,0,0,0.28);
+}
+
+.distance-includes-wide h3{
+  margin:0 0 18px;
+  font-size:18px;
+  color:var(--text);
+}
+
+/* Grid */
+.distance-includes-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:16px;
+}
+
+/* Card */
+.include-card{
+  padding:16px;
+  border-radius:16px;
+
+  border:1px solid var(--border);
+  background: color-mix(in oklab, var(--surface) 90%, var(--bg));
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.include-card:hover{
+  transform:translateY(-2px);
+  border-color: rgba(255,212,0,0.22);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+}
+
+.include-card strong{
+  display:block;
+  line-height:1.2;
+  color:var(--text);
+}
+
+.include-card p{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px){
+  .distance-includes-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width: 600px){
+  .distance-includes-wide{
+    padding:18px;
+  }
+  .distance-includes-grid{
+    grid-template-columns:1fr;
+  }
+}

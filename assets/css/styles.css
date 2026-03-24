@@ -1,0 +1,28 @@
+@import url("00-tokens.css");
+@import url("01-base.css");
+@import url("02-layout.css");
+@import url("03-header.css");
+@import url("04-buttons.css");
+
+/* Componentes reutilizables */
+@import url("06-cards-media-badges.css");
+@import url("07-animations.css");
+
+/* Secciones base */
+@import url("05-sections.css");
+@import url("08-footer-whatsapp.css");
+
+/* Secciones premium */
+
+@import url("10-hero-premium.css");
+@import url("20-distance-premium.css");
+@import url("21-accordion.css");
+@import url("22-includes-wide.css");
+@import url("23-includes-icons.css");
+@import url("30-testimonials-carousel.css");
+@import url("40-career.css");
+@import url("41-authority.css");
+@import url("42-box-expanded.css");
+
+/* Responsive al final (overrides globales) */
+@import url("99-responsive.css");
